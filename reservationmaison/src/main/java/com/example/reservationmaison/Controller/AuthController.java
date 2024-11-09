@@ -1,30 +1,34 @@
 package com.example.reservationmaison.Controller;
+import com.example.reservationmaison.Model.Client;
+import com.example.reservationmaison.Service.ClientService;
+import com.example.reservationmaison.Service.impl.ClientIMPL;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
 @CrossOrigin
-@RequestMapping("api/v1/Client")
+@RequestMapping("/Client")
 
 public class AuthController {
     @Autowired
-    private ClientService clientservice;
+    private ClientIMPL clientimp;
+
+
+    @GetMapping("/ListClient")
+    public List<Client> getAllClient(){
+        return clientimp.listclient();
+    }
+
 
     @PostMapping(path = "/register")
-    public String saveClient(@RequestBody ClientDTO clientDTO){
-
-        String id = clientservice.addClient(clientDTO);
-        return id;
+    public Client saveClient(@RequestBody Client clt){
+        return clientimp.addClient(clt);
     }
 
-    @PostMapping(path = "/login")
-    public ResponseEntity<?> loginClient(@ResponseBody LoginDTO loginDTO){
 
-        LoginMessage loginMessage = clientservice.loginMessage(loginDTO);
-        return ResponseEntity.ok(loginMessage);
-    }
 
 
 }
