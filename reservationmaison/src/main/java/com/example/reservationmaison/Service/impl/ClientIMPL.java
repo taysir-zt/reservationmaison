@@ -5,10 +5,10 @@ import com.example.reservationmaison.Repository.ClientRepo;
 import com.example.reservationmaison.Service.ClientService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -27,4 +27,7 @@ public class ClientIMPL implements ClientService {
     }
 
 
+    public Optional<Client> findByEmail(String email) {
+        return clientRepo.findByEmail(email);
+    }
 }
