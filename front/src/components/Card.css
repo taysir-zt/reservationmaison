@@ -1,0 +1,51 @@
+.row {
+    display: flex; /* Utiliser flexbox pour aligner les cartes */
+    justify-content: center; /* Centre horizontalement */
+    align-items: stretch; /* Assure que toutes les colonnes ont la même hauteur */
+    flex-wrap: wrap; /* Permet un passage à une nouvelle ligne si nécessaire */
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px; /* Largeur fixe */
+    height: 450px; /* Hauteur fixe pour toutes les cartes */
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-img-top {
+    width: 100%; /* Largeur uniforme */
+    height: 200px; /* Hauteur fixe */
+    object-fit: cover; /* Remplit sans déformer */
+  }
+  
+  .card-body {
+    flex-grow: 1; /* Étire le contenu pour remplir la hauteur disponible */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card-title {
+    text-align: center; /* Centre le titre */
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #777;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+   /* Affiche un maximum de 3 lignes */
+    -webkit-box-orient: vertical;
+  }
+  
